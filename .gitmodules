@@ -1,0 +1,3 @@
+[submodule "javascripts/Backbone_localStorage"]
+	path = javascripts/Backbone_localStorage
+	url = git@github.com:jeromegn/Backbone.localStorage.git

@@ -39,14 +39,54 @@
       <h2>Build your quiz</h2>
       <hr />
     </div>
+      <div class="twelve columns">
+          <input type="button" onclick="window.localStorage.clear()" value="clear local storage" />
+      </div>
   </div>
 
   <div class="row">
     <div class="six columns" id="quiz_builder">
-        <a href="#" id="add_question" class="medium button">Add question</a>
-        <div class="row" id="q_container"></div>
-        <ul class="disc" id="a_container"></ul>
-        <a class="medium alert button" id="save_question" href="#">Save</a>
+        <input type="hidden" name="last_q_id" value="" id="last_q_id" />
+        <div class="row">
+            <div class="twelve columns">
+                <input type="text" class="q_input" id="question_text" placeholder="Type question" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="four columns">
+                <label for="type_single">
+                    <input type="radio" name="answer_type" value="single" checked="checked" id="type_single" /> -
+                    Single
+                </label>
+            </div>
+            <div class="four columns">
+                <label for="type_multiple">
+                    <input type="radio" name="answer_type" value="multiple" id="type_multiple" /> -
+                    Multiple
+                </label>
+            </div>
+            <div class="four columns">
+                <label for="type_extended">
+                    <input type="radio" name="answer_type" value="extended" id="type_extended" /> -
+                    Free text
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="twelve columns">
+                <ul class="disc" id="a_container"></ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="twelve columns">
+                <a href="#" class="small success button" style="display: none;" id="add_answer">Add answer</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="twelve columns">
+                <a class="medium alert button" id="save_question" style="display: none;" href="#">Save</a>
+            </div>
+        </div>
     </div>
 
     <div class="six columns">
@@ -63,50 +103,28 @@
   </div>
   
   <!-- Here comes templates -->
-  <script type="text/template" id="question">
-      <div class="row">
-          <div class="four columns">
-              <input type="radio" name="answer_type" value="single" checked="checked" id="type_single" /> -
-              <label for="type_single">Single</label>
-          </div>
-          <div class="four columns">
-              <input type="radio" name="answer_type" value="multiple" id="type_multiple" /> -
-              <label for="type_multiple">Multiple</label>
-          </div>
-          <div class="four columns">
-              <input type="radio" name="answer_type" value="extended" id="type_extended" /> -
-              <label for="type_extended">Free text</label>
-          </div>
-      </div>
-      <div class="row">
-          <input type="text" class="q_input" id="question_text" placeholder="Type question" />
-          <a href="#" class="small success button" id="add_answer">Add answer</a>
-      </div>
-  </script>
   <script type="text/template" id="answer_single">
-      <li>
-          <input type="radio" class="control" name="a_for_q<%= id %>" />
-          <%= _.template($("#answer_text").html(), {"id": id}) %>
-          <span><input type="radio" class="answer-validator" name="q<%= id %>_a_validator" /> - valid answer</span>
-      </li>
+      <%= _.template($("#answer_text").html())() %>
+      <input type="radio" class="answer-validator" name="q_a_validator" /> - valid answer
   </script>
   <script type="text/template" id="answer_multiple">
-      <li>
-          <input type="checkbox" class="control" name="a_for_q<%= id %>[]" />
-          <%= _.template($("#answer_text").html(), {"id": id}) %>
-          <span><input type="checkbox" class="answer-validator" name="q<%= id %>_a_validator[]" /> - valid answer</span>
-      </li>
+      <%= _.template($("#answer_text").html())() %>
+      <input type="checkbox" class="answer-validator" name="q_a_validator[]" /> - valid answer
   </script>
   <script type="text/template" id="answer_extended">
-      <%= _.template($("#answer_text").html(), {"id": id}) %>
+      <%= _.template($("#answer_text").html())() %>
   </script>
   <script type="text/template" id="answer_text">
-      <input type="text" id="a<%= id %>" data-correct-answer="" class="answer_text" placeholder="Type answer" />
-      <p id="a_<%= id %>text"></p>
+      <a href="#" class="small alert button" title="remove">X</a>
+      <input type="text" data-correct-answer="" class="answer_text" placeholder="Type answer" />
   </script>
-  <script type="text/template" id="q_and_a">
-      <header><%= title %></header>
-      <% if(true){ %>Just type this text....<% }%>
+  <script type="text/template" id="answer_single_preview">
+      <input type="radio" class="control" name="a_for_q_id" />
+      <span class="text"><%= title %></span>
+  </script>
+  <script type="text/template" id="answer_multiple_preview">
+      <input type="checkbox" class="control" name="a_for_q_id[]" />
+      <span class="text"><%= title %></span>
   </script>
   
   <!-- Included JS Files (Compressed) -->

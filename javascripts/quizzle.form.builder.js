@@ -157,8 +157,8 @@
 
         events: {
             "keyup #question_text": "updateQuestion",
-            "click #add_answer": "addAnswer"
-//            "click #save_question": "saveQuestion"
+            "click #add_answer": "addAnswer",
+            "click #save_question": "saveQuestion"
         },
 
         initialize: function(){
@@ -191,31 +191,19 @@
                 alert("You didn't finish with your previous question!");
                 return;
             }
-            var aQuestion = QuestionList.create({
-                title: this.input.val(),
-                type: $("input[name=answer_type]:checked").val()
-            }, {wait: true});
             
             // prepare for next question
             this.input.val("");
             // update reference to the las model id
-            $("#last_q_id").val(aQuestion.get("id"));
+            $("#last_q_id").val("");
 
             // disable answer type selector and prepare panel to input answers
             $("input[name='answer_type']").each(function(idx,item){
-                item.disabled = true;
+                item.disabled = false;
             });
             
-            // Add empty answer instance
-            var anAnswer = new Answer({"question_id":aQuestion.id});
-            aQuestion.addAnswer(anAnswer);
-            $("#a_container").append(
-                new AnswerView({"model":anAnswer}).render().el
-            );
-            $("#q_answers_preview").append( new AnswerPreviewView({"model":anAnswer}).render.el);
-            
-            // This control saves current answer and adds controls to create another answer
-            $("#add_answer").show();
+//            this.addAnswer(aQuestion);
+//            $("#add_answer").show();
         },
 
         showQuestion: function(question){
@@ -236,7 +224,16 @@
             if($("#last_q_id").val() === ""){
                 alert("Create a question first!");
                 return;
-            }
+            }            
+            // Get question from collection by its ID
+            var aQuestion = QuestionList.get($("#last_q_id").val());
+            // Add empty answer instance
+            var anAnswer = new Answer({"question_id":aQuestion.id});
+            aQuestion.addAnswer(anAnswer);
+            $("#a_container").append(
+                new AnswerView({"model":anAnswer}).render().el
+            );
+            $("#q_answers_preview").append( new AnswerPreviewView({"model":anAnswer}).render.el);            
         },
 
         render: function(question){

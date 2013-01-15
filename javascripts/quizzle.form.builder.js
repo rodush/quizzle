@@ -191,19 +191,24 @@
                 alert("You didn't finish with your previous question!");
                 return;
             }
-            
+
+            var aQuestion = QuestionList.create({
+                title: this.input.val(),
+                type: $("input[name=answer_type]:checked").val()
+            }, {wait: true});
+
             // prepare for next question
             this.input.val("");
             // update reference to the las model id
-            $("#last_q_id").val("");
+            $("#last_q_id").val(aQuestion.get("id"));
 
             // disable answer type selector and prepare panel to input answers
             $("input[name='answer_type']").each(function(idx,item){
-                item.disabled = false;
+                item.disabled = true;
             });
             
 //            this.addAnswer(aQuestion);
-//            $("#add_answer").show();
+            $("#add_answer").show();
         },
 
         showQuestion: function(question){

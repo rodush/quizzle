@@ -21,3 +21,9 @@ local.properties
 
 # Idea's IDE files
 .idea/
+.bowerrc
+.editorconfig
+.jshintrc
+node_modules/
+gitignore
+.gitattributes

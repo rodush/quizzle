@@ -3,8 +3,8 @@ require([
 	'application',
 	'regionManager'
 ],
-function ( Backbone, App ) {
+function ( Backbone, App, RegionManager ) {
     'use strict';
-
-	App.start();
+    
+    App.start();
 });

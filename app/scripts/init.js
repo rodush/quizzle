@@ -38,7 +38,7 @@ require.config({
         tmpl: "../templates",
 
         /* handlebars from the require handlerbars plugin below */
-        handlebars: '../bower_components/require-handlebars-plugin/Handlebars',
+        handlebars: '../bower_components/require-handlebars-plugin/hbs/handlebars',
 
         /* require handlebars plugin - Alex Sexton */
         i18nprecompile: '../bower_components/require-handlebars-plugin/hbs/i18nprecompile',
@@ -46,10 +46,10 @@ require.config({
         hbs: '../bower_components/require-handlebars-plugin/hbs'
         
         // HERE COMES CUSTOM PATHS
-//        router: 'router'
     },
 
     hbs: {
-        disableI18n: true
+        disableI18n: true,
+        partialsUrl: ''
     }
 });

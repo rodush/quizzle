@@ -1,10 +1,11 @@
-define(['backbone', 'controller'], function(Backbone, AppController){
+define(['backbone', 'controllers/food_router'], function(Backbone, FoodController){
     var AppRouter = Backbone.Marionette.AppRouter.extend({
-        controller: AppController,
+        controller: FoodController,
         appRoutes: {
             "food": "showFood",
             "beverages": "showBeverages",
-            "kitchen": "showKitchen"
+            "kitchen": "showKitchen",
+            "suppliers": "manageSuppliers"
         }
     });
     

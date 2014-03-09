@@ -1,37 +1,11 @@
-<div>
-    <div class="wrapper">
-        <header id="header">
-            <h1>Order panel</h1>
-            <div class="controls">
-                <span id="hide-menu">Hide menu</span>
-            </div>
-        </header>
-        <div class="layout">
-            <nav id="navigation">
-                <ul>
-                    <li><a href="#food">Food</a></li>
-                    <li><a href="#beverages">Beverages</a></li>
-                    <li><a href="#kitchen">Kitchen</a></li>
-                </ul>
-            </nav>
-            <div id="content">
-                Test<br>
-                Test<br>
-                Test<br>
-                Test<br>
-                Test<br>
-                Test<br>
-                Test<br>
-                Test<br>
-                Test<br>
-                Test<br>
-                Test<br>
-                Test<br>
-                Test<br>
+<div>    
+    {{> ../templates/partials/navigation }}
+    <div class="container" id="main-content">
+        <div class="row">
+            <div class="col-lg-3">{{{ copyYear }}}</div>
+            <div class="col-lg-9">
+                Right column
             </div>
         </div>
     </div>
-    <footer>
-        Copyright &copy; <a href="mailto:rodush@gmail.com">Roman Dushko</a> {{copyYear}}
-    </footer>
 </div>

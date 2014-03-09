@@ -1,15 +1,10 @@
-define(['backbone', 'hbs!tmpl/layout'], function(Backbone, Layout_tmpl) {
+define(['backbone', 'hbs!tmpl/layout'],
+    
+function(Backbone, layoutTmpl) {
     'use strict';
-
-    var layoutTmpl = Layout_tmpl;
-
+        
     var AppLayout = Backbone.Marionette.Layout.extend({
-        template: layoutTmpl({ copyYear: new Date().getFullYear()}),
-        regions: {
-            'header': '#header',
-            'menu': '#navigation',
-            'content': '#content'
-        }
+        template: layoutTmpl({ copyYear: new Date().getFullYear()})
     });
     
     return AppLayout;

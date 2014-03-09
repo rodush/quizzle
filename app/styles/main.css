@@ -4987,60 +4987,20 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 400px; }
-
-html, body {
-  height: 100%;
-  background-color: lightgray;
-  margin: 0;
-  padding: 0; }
-
-h1, h2, h3 {
-  margin: 0; }
-
-.wrapper {
+.btn-file {
   position: relative;
-  height: auto !important;
-  background-color: lightpink;
-  min-height: 100%;
-  margin: 0 auto -30px; }
-
-.layout {
-  overflow: hidden;
-  font-size: 0; }
-
-.layout div, .layout nav {
-  padding-bottom: 9999px;
-  margin-bottom: -9999px; }
-
-#navigation {
-  vertical-align: text-top;
-  display: inline-block;
-  white-space: normal;
-  font-size: 12px;
-  width: 150px;
-  background-color: lightblue; }
-
-#content {
-  vertical-align: text-top;
-  display: inline-block;
-  white-space: normal;
-  font-size: 12px;
-  width: 100%;
-  position: relative;
-  left: 150px;
-  margin-left: -150px;
-  background-color: #ffff00; }
-
-header {
-  position: relative;
-  height: 100px;
-  background-color: #0000ff; }
-
-footer {
-  position: relative;
-  height: 30px;
-  background-color: lightgreen;
-  text-align: center; }
+  overflow: hidden; }
+  .btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 999px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block; }

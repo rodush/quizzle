@@ -1,14 +1,14 @@
 {
   "name": "backbone.wreqr",
   "homepage": "https://github.com/marionettejs/backbone.wreqr",
-  "version": "0.2.0",
-  "_release": "0.2.0",
+  "version": "1.0.0",
+  "_release": "1.0.0",
   "_resolution": {
     "type": "version",
-    "tag": "v0.2.0",
-    "commit": "c6daa770f317fd2c92c57c7e177015d34845dfe0"
+    "tag": "v1.0.0",
+    "commit": "781d6b1408d3c9fa2061917038a73a62327fc014"
   },
   "_source": "git://github.com/marionettejs/backbone.wreqr.git",
-  "_target": "~0.2.0",
+  "_target": "~1.0.0",
   "_originalSource": "backbone.wreqr"
 }
